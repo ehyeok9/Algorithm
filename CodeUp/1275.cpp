@@ -2,14 +2,18 @@
 #include <string>
 #include <algorithm>
 #include <vector>
+#include <cmath>
 using namespace std;
 
 int main(){
-	int num;
-	cin >> num;
+	int n,k;
+	cin >> n >> k;
+	int total = 1;
 	
-	for (int i=1; i <=9; i++){
-		printf("%d*%d=%d\n",num,i,num*i);
+	for (int i=0; i <k;i++){
+		total *= n;
 	}
+	
+	cout << total;
 	return 0;
 }
