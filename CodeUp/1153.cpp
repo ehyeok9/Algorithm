@@ -6,14 +6,17 @@
 using namespace std;
 
 int main(){
-	int num;
-	cin >> num;
+	int a,b;
+	cin >> a >> b;
 	
-	if (num >= 10){
-		cout << "big";
+	if (a > b){
+		cout << ">";
+	}
+	else if (a < b){
+		cout << "<";
 	}
 	else{
-		cout << "small";
+		cout << "=";
 	}
 	return 0;
 }

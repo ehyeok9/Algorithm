@@ -6,14 +6,15 @@
 using namespace std;
 
 int main(){
-	int num;
-	cin >> num;
+	int a, b, c;
+	cin >> a >> b >> c;
 	
-	if (num >= 10){
-		cout << "big";
+	if (a <= 170 || b <= 170 || c <= 170){
+		cout << "CRASH";
 	}
 	else{
-		cout << "small";
+		cout << "PASS";
 	}
+	
 	return 0;
 }

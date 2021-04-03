@@ -9,11 +9,11 @@ int main(){
 	int num;
 	cin >> num;
 	
-	if (num >= 10){
-		cout << "big";
+	if (num%7==0){
+		cout << "multiple";
 	}
 	else{
-		cout << "small";
+		cout << "not multiple";
 	}
 	return 0;
 }

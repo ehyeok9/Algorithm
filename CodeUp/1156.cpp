@@ -9,11 +9,11 @@ int main(){
 	int num;
 	cin >> num;
 	
-	if (num >= 10){
-		cout << "big";
+	if (num%2==0){
+		cout << "even";
 	}
 	else{
-		cout << "small";
+		cout << "odd";
 	}
 	return 0;
 }

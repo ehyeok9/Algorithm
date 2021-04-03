@@ -6,14 +6,15 @@
 using namespace std;
 
 int main(){
-	int num;
-	cin >> num;
+	int a;
+	int list[3];
 	
-	if (num >= 10){
-		cout << "big";
+	for (int i=0; i<3; i++){
+		cin >> a;
+		list[i] = a;
 	}
-	else{
-		cout << "small";
-	}
+	
+	sort(list, list+3);
+	cout << list[1];
 	return 0;
 }

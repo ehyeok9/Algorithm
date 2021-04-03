@@ -9,11 +9,11 @@ int main(){
 	int num;
 	cin >> num;
 	
-	if (num >= 10){
-		cout << "big";
+	if ((num %6==0) || (num >= 50 && num <= 70)){
+		cout << "win";
 	}
 	else{
-		cout << "small";
+		cout << "lose";
 	}
 	return 0;
 }

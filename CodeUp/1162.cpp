@@ -6,14 +6,16 @@
 using namespace std;
 
 int main(){
-	int num;
-	cin >> num;
+	int a, b, c;
+	cin >> a >> b >> c;
+	int result = a - b + c;
 	
-	if (num >= 10){
-		cout << "big";
+	if (result%10 == 0){
+		cout << "대박";
 	}
 	else{
-		cout << "small";
+		cout << "그럭저럭";
 	}
+	
 	return 0;
 }

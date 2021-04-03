@@ -6,14 +6,15 @@
 using namespace std;
 
 int main(){
-	int num;
-	cin >> num;
-	
-	if (num >= 10){
-		cout << "big";
+	int time, goal;
+	cin >> time  >> goal;
+	time = 90 -time;
+	if (time%5==0){
+		cout << time/5 + goal;
 	}
 	else{
-		cout << "small";
+		cout << time/5 + goal + 1;
 	}
+	
 	return 0;
 }

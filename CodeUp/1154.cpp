@@ -6,14 +6,14 @@
 using namespace std;
 
 int main(){
-	int num;
-	cin >> num;
+	int a,b;
+	cin >> a >> b;
 	
-	if (num >= 10){
-		cout << "big";
+	if (a > b){
+		cout << a-b;
 	}
 	else{
-		cout << "small";
+		cout << b-a;
 	}
 	return 0;
 }

@@ -6,14 +6,14 @@
 using namespace std;
 
 int main(){
-	int num;
-	cin >> num;
+	int year;
+	cin >> year;
 	
-	if (num >= 10){
-		cout << "big";
+	if (((year%4 ==0) && !(year%100 == 0)) || (year%400 == 0)){
+		cout << "yes";
 	}
-	else{
-		cout << "small";
+	else {
+		cout << "no";
 	}
 	return 0;
 }
