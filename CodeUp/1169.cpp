@@ -16,7 +16,12 @@ int main(){
 	}
 	else{
 		year -= 2000;
-		printf("%.2d %d", year, 3);
+		if (year < 10){
+			printf("%d %d", year, 3);
+		}
+		else{
+			printf("%.2d %d", year, 3);
+		}
 	}
 	
 	return 0;
