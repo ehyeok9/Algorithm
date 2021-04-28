@@ -6,28 +6,42 @@
 using namespace std;
 
 int main(){
-	int n,k;
-	cin >> n >> k;
-	int space;
+	int n, space, middle = 0;
+	cin >> n;
+	space = n-1;
 	string str;
 	
-	for (int i=0; i<k; i++){
-		space =0;
-		for (int j=0; j < n*2-1; j++){
-			str = "";
-			for (int u=0; u<space; u++){
-				str += ' ';
-			}
-			str += '*';
-			if (j+1 < n){
-				space++;
-			}
-			else{
-				space--;
-			}
-			cout << str << endl;
+	for (int i=0; i < n;i++){
+		str = "";
+		for (int j=0; j< space; j++){
+			str += " ";
 		}
+		str += "*";
+		for (int j=0; j < middle; j++){
+			str += " ";
+		}
+		str += "*";
+		cout << str << endl;
+		space--;
+		middle += 2;
 	}
+	space ++;
+	middle -= 2;
+	for (int i=0; i < n;i++){
+		str = "";
+		for (int j=0; j< space; j++){
+			str += " ";
+		}
+		str += "*";
+		for (int j=0; j < middle; j++){
+			str += " ";
+		}
+		str += "*";
+		cout << str << endl;
+		space++;
+		middle -= 2;
+	}
+	
 	return 0;
 }
 
