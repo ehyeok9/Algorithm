@@ -10,11 +10,13 @@ int main(){
 	cin >> n;
 	
 	vector<pair<int, int>> list;
-	
-	for (int i=1; i <= n/2; i++){
-		list.push_back(pair<int, int>(i, n-i));
-		list.push_back(pair<int, int>(n-i, i));
+	int a,b;
+	for (int i=1; i <= 6; i++){
+		if (n-i  <= 6 &&  n-i >= 1){
+			list.push_back(pair<int, int>(i, n-i));
+		}
 	}
+	
 	sort(list.begin(), list.end());
 	
 	for (int i = 0; i < list.size(); i++){
