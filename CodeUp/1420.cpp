@@ -4,6 +4,15 @@
 #include <vector>
 #include <cmath>
 using namespace std;
+bool compare(pair<string, int> a, pair<string, int> b);
+
+
+bool compare(pair<string, int> a, pair<string, int> b){
+	if (a.second == b.second){
+		return a.second > b.second;
+	}
+	return a.second > b.second;
+}
 
 int main(){
 	int n;
@@ -16,10 +25,9 @@ int main(){
 		cin >> str >> a;
 		list.push_back(make_pair(str,a));
 	}
-	sort(list.begin(), list.end());
+	
+	sort(list.begin(), list.end(), compare);
 	
 	cout << list[2].first;
 	return 0;
 }
-
-bool compare()
