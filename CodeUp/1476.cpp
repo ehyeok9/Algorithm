@@ -27,7 +27,7 @@ int main(){
 			y = 2;
 			for (int j=1; j <= i; j++){
 				list[x][y] = a;
-				y++;
+				y++;aaa
 				x--;
 				a++;
 			}
