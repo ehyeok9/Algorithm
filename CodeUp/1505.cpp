@@ -6,21 +6,46 @@
 using namespace std;
 
 int main(){
-	int n, a= 1;
+	int n, a=1;
 	scanf("%d", &n);
 	int list[n+1][n+1];
+	bool flag = true;
+	int sequence = n, x = 1, y =0;
 	
-	for (int i=1; i <= n; i++){
-		if (i%2 == 0){
-			for (int j=n; j >= 1; j--){
-				list[j][i] = a;
-				a++;
+	for (int i=1; i<=2*n+1; i++){
+		if (flag && i%2 ==1){
+			for (int j = 1; j <= sequence; j++){
+				y++;
+				list[x][y] = a++;
+			}
+			sequence--;
+		}
+		else if (flag && i%2 ==0){
+			for (int j = 1; j <= sequence; j++){
+				x++;
+				list[x][y] = a++;
 			}
 		}
-		else{
-			for (int j=1; j <= n; j++){
-				list[j][i] = a;
-				a++;
+		else if (!flag && i%2 ==1){
+			for (int j = 1; j <= sequence; j++){
+				y--;
+				list[x][y] = a++;
+			}
+			sequence--;
+		}
+		else if (!flag && i%2 ==0){
+			for (int j = 1; j <= sequence; j++){
+				x--;
+				list[x][y] = a++;
+			}
+		}
+		
+		if (i%2 ==0){
+			if (flag){
+				flag = false;
+			}
+			else{
+				flag = true;
 			}
 		}
 	}
@@ -29,7 +54,7 @@ int main(){
 		for (int j=1; j <= n; j++){
 			printf("%d ", list[i][j]);
 		}
-		cout << endl;
+		printf("\n");
 	}
 	return 0;
 }
