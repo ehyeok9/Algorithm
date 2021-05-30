@@ -6,10 +6,10 @@
 using namespace std;
 
 int main(){
-	int list[12][11];
+	int list[100][100];
 	
 	for (int i =1; i<=11; i++){
-		for (int j=1; i<=10; i++){
+		for (int j=1; j<=10; j++){
 			scanf("%d", &list[i][j]);
 		}
 	}
@@ -23,7 +23,6 @@ int main(){
 					printf("%d fall\n", i);
 					break;
 				}
-
 				if (list[j][i] > 0){
 					safe = false;
 					printf("%d crash\n", i);
