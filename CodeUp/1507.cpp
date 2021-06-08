@@ -39,7 +39,7 @@ int main(){
 				sum_2 += 1;
 			}
 			else if (cordinate[i][j] == 3 || cordinate[i-1][j-1] ==3 || cordinate[i-1][j+1] ==3 || cordinate[i+1][j-1] ==3 || cordinate[i+1][j+1] ==3){
-				sum_3 += 1;
+				sum_3 += 1;				
 			}
 			else if (cordinate[i][j] == 4 || cordinate[i-1][j-1] ==4 || cordinate[i-1][j+1] ==4 || cordinate[i+1][j-1] ==4 || cordinate[i+1][j+1] ==4){
 				sum_4 += 1;
