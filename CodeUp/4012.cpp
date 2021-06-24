@@ -10,41 +10,60 @@ bool compare(pair<int, int> a, pair<int, int> b){
 }
 
 bool compare2(pair<pair<int, int>, int> a, pair<pair<int, int>, int> b){
-	return a.first.second < a.first.second;
+	return a.first.second < b.first.second;
 }
+
 int main(){
-	int n, temp;
+	int n, a;
 	scanf("%d", &n);
-	vector<pair<int, int>> value;
+	vector<pair<int, int>> input;
 	
-	for (int i=0; i<n; i++){
-		scanf("%d", &temp);
-		value.push_back(make_pair(temp, i));
+	for (int i=0; i < n; i++){
+		scanf("%d", &a);
+		input.push_back(make_pair(a,i));
 	}
 	
-	sort(value.begin(), value.end(), compare);
-	vector<pair<pair<int, int>, int>> result;
-	int cnt = 1;
+	sort(input.begin(), input.end(), compare);
 	
-	for(int i=0; i<value.size(); i++){
-		if (i == value.size()-1){
-			result.push_back(make_pair(value[i], cnt));
+	int rate = 1;
+	vector<pair<pair<int, int>, int>> result;
+	bool flag;
+	
+	if (input[0].first == input[1].first){
+		flag = true;
+	}
+	else{
+		flag = false;
+	}
+	
+	for (int i=0; i<input.size()-1; i++){
+		if (!flag){
+			rate = i+1;
 		}
-		else if (value[i].first == value[i+1].first){
-			result.push_back(make_pair(value[i], cnt));
+		
+		result.push_back(make_pair(input[i], rate));
+		
+		if (input[i].first == input[i+1].first){
+			flag = true;
 		}
 		else{
-			result.push_back(make_pair(value[i], cnt));
-			cnt ++;
+			flag = false;
 		}
+	}
+	
+	if (flag){
+		result.push_back(make_pair(input[input.size()-1], rate));
+	}
+	else{
+		result.push_back(make_pair(input[input.size()-1], input.size()));
 	}
 	
 	sort(result.begin(), result.end(), compare2);
 	
 	for (int i=0; i<result.size(); i++){
 		printf("%d %d\n", result[i].first.first, result[i].second);
-		printf("%d\n", result[i].first.second);
 	}
+	
 	return 0;
 }
 
