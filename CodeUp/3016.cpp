@@ -5,92 +5,49 @@
 #include <cmath>
 using namespace std;
 
-bool compare1(pair<string, vector<int>> a, pair<string, vector<int>> b){
-	return a.second[0] > b.second[0]; 
+bool compare(pair<string, vector<int>> a, pair<string, vector<int>> b){
+	return a.second[0] > b.second[0];
 }
 
-bool compare2(pair<string, vector<int>> a, pair<string, vector<int>> b){
-	return a.second[1] > b.second[1]; 
-}
-
-bool compare3(pair<string, vector<int>> a, pair<string, vector<int>> b){
-	return a.second[2] > b.second[2]; 
+bool compare2(vector<int> a, vector<int> b){
+	return a[1] > b[1];
 }
 
 int main(){
-	int n;
+	int n, a;
 	scanf("%d", &n);
+	vector<pair<string, vector<int>>> input;
+	vector<int> ex;
 	string str;
-	int first, second, third;
-	vector<pair<string, vector<int>>> struc;
 	
 	for (int i=0; i<n; i++){
 		cin >> str;
-		scanf("%d %d %d", &first, &second, &third);
-		vector<int> temp = {};
-		temp.push_back(first);
-		temp.push_back(second);
-		temp.push_back(third);
-		struc.push_back(make_pair(str, temp));
-	}
-	
-	sort(struc.begin(), struc.end(), compare1);
-	string name = struc[0].first;
-	int high = struc[0].second[0];
-	cout << str << ' ';
-	
-	int value2;
-	sort(struc.begin(), struc.end(), compare2);
-	vector<int> set2;
-	if (struc[0].second[0] == high){
-		printf("%d ", 1);
-	}
-	else{
-		for (int i=0; i < struc.size(); i++){
-			if (struc[i].second[0] ==  high){
-				value2 = struc[i].second[1];
-				break;
-			}
-			set2.push_back(struc[i].second[1]);
+		for (int j=0; j<3; j++){
+			scanf("%d", &a);
+			ex.push_back(a);
 		}
-
-		for (int i=0; i < set2.size(); i++){
-			if (set2[i] == value2){
-				printf("%d ", i+1);
-				break;
+		input.push_back(make_pair(str, ex));
+		ex = {};
+	}
+	
+	sort(input.begin(), input.end(), compare);
+	string name = input[0].first;
+	int rank[input.size()] = {1};
+	int rank2[input.size()] = {1};
+	
+	for (int i=0; i<input.size(); i++){
+		for (int j=0; j<input.size(); j++){
+			if (input[i].second[1] < input[j].second[1]){
+				rank[i]++;
 			}
-			if (i == set2.size()-1){
-				printf("%d ", i+2);
+			if (input[i].second[2] < input[j].second[2]){
+				rank2[i]++;
 			}
 		}
 	}
 	
-	int value3;
-	sort(struc.begin(), struc.end(), compare3);
-	vector<int> set3;
-	if (struc[0].second[0] == high){
-		printf("%d", 1);
-	}
-	else{
-		for (int i=0; i < struc.size(); i++){
-			if (struc[i].second[0] ==  high){
-				value3 = struc[i].second[2];
-				break;
-			}
-			set3.push_back(struc[i].second[2]);
-		}
-
-		for (int i=0; i < set3.size(); i++){
-			if (set3[i] == value3){
-				printf("%d", i+1);
-				break;
-			}
-			if (i == set3.size()-1){
-				printf("%d", i+2);
-			}
-		}
-	}
+	cout << name << " " << rank[0] << " " << rank2[0];
 	
-	return 0;
+	return 0;	
 }
 
