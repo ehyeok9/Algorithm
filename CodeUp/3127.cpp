@@ -44,6 +44,7 @@ int main(){
 		else{
 			result = str[i] - '0';
 			equation.push(result);
+			
 		}
 	}
 	
