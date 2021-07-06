@@ -9,45 +9,51 @@ using namespace std;
 int main(){
 	string str;
 	getline(cin, str);
-	stack<char> equation;
-	int result, a,b;
 	
-	for (int i = 0; i <= str.length() -2; i += 2){
-		if (str[i] == '*'){
-			a = equation.top();
+	vector<string> word;
+	word.clear();
+	int previous =0, current=0;
+	current = str.find(' ');
+	
+	while (current != string::npos){
+		string sub = str.substr(previous, current-previous);
+		word.push_back(sub);
+		previous = current+1;
+		current = str.find(' ', previous);
+	}
+	word.push_back(str.substr(previous, current-previous));
+
+	stack<string> equation;
+	int a,b;
+	for (int i=0; i < word.size()-1; i++){
+		if (word[i] == "*"){
+			a = stoi(equation.top());
 			equation.pop();
-			b = equation.top();
+			b = stoi(equation.top());
 			equation.pop();
-			equation.push(b*a);
+			equation.push(to_string(b*a));
 		}
-		else if (str[i] == '/'){
-				a = equation.top();
-				equation.pop();
-				b = equation.top();
-				equation.pop();
-				equation.push(b/a);
+		else if (word[i] == "-"){
+			a = stoi(equation.top());
+			equation.pop();
+			b = stoi(equation.top());
+			equation.pop();
+			equation.push(to_string(b-a));
 		}
-		else if (str[i] == '-'){
-			a = equation.top();
+		else if (word[i] == "+"){
+			a = stoi(equation.top());
 			equation.pop();
-			b = equation.top();
+			b = stoi(equation.top());
 			equation.pop();
-			equation.push(b-a);
+			equation.push(to_string(b+a));
 		}
-		else if (str[i] == '+'){
-			a = equation.top();
-			equation.pop();
-			b = equation.top();
-			equation.pop();
-			equation.push(b+a);
-		}	
 		else{
-			result = str[i] - '0';
-			equation.push(result);
-			
+			equation.push(word[i]);
 		}
 	}
 	
-	cout << equation.top();
+	int answer = stoi(equation.top());
+	
+	cout << answer;
 	return 0;
 }
