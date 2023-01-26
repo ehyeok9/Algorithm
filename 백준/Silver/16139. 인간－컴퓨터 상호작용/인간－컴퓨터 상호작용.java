@@ -14,11 +14,10 @@ public class Main{
         
         String query = br.readLine();
         int tcase = Integer.parseInt(br.readLine());
-        int[][] sumVal = new int[query.length()+1][];
+        int[][] sumVal = new int[query.length()][];
         int[] tmp = new int[26];
-        sumVal[0] = tmp.clone();
-        for (int i=1; i <= query.length(); i++){
-            int num = query.charAt(i-1) - 'a';
+        for (int i=0; i < query.length(); i++){
+            int num = query.charAt(i) - 'a';
             tmp[num] += 1;
             sumVal[i] = tmp.clone();
         }
@@ -29,7 +28,11 @@ public class Main{
             int a = Integer.parseInt(input[1]);
             int b = Integer.parseInt(input[2]);    
             // System.out.println(String.format("(a=%d, b=%d, valA=%d, valB=%d) ", a, b, sumVal[a][num], sumVal[b+1][num]));
-            bw.write(sumVal[b+1][num] - sumVal[a][num] + "\n");
+            if (a == 0){
+                bw.write(sumVal[b][num] + "\n");    
+            } else {
+                bw.write(sumVal[b][num] - sumVal[a-1][num] + "\n");
+            }
         }
         
         bw.flush();
