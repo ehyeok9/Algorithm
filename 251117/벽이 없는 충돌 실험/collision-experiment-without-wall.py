@@ -6,8 +6,8 @@ input = sys.stdin.readline
 def simulation(N, beads):
     # board를 2N으로 만들기
     board = [
-        [[] for _ in range(3 * N + 2)]
-        for _ in range(3 * N + 2)
+        [[] for _ in range(3 * N + 3)]
+        for _ in range(3 * N + 3)
     ]
 
     preprocessedBeads = []
@@ -17,8 +17,8 @@ def simulation(N, beads):
     for x, y, w, d, num in beads:
         preprocessedBeads.append([-int(y) * 2 + N, int(x) * 2 + N, int(w), d, num])
 
-    MIN_BORDER = N - 2
-    MAX_BORDER = 3 * N + 2
+    MIN_BORDER = 0
+    MAX_BORDER = 3 * N + 3
 
     deq = deque(preprocessedBeads)
     lastCrushTime = -1
@@ -55,6 +55,7 @@ def simulation(N, beads):
             for c in range(MIN_BORDER, MAX_BORDER):
                 for w, d, num in board[r][c]:
                     deq.append([r, c, w, d, num])
+                    # print(board[r][c])
                 board[r][c] = []
 
     print(lastCrushTime)
