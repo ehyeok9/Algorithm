@@ -40,9 +40,16 @@ def simulation():
             for c in range(N):
                 for d, v, num in board[r][c]:
                     deq.append([r, c, d, v, num])
+                
+                # board 초기화
+                board[r][c] = []
     
     # 다 끝나고 남은 구슬
     print(len(deq))
+
+def printBoard():
+    for line in board:
+        print(*line)
                 
 def removeLowerPriorityBead(y, x):
     # v, num 로 내림차순 정렬
