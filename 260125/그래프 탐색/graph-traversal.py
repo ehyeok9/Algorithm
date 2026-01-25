@@ -3,6 +3,9 @@ import sys
 input = sys.stdin.readline
 
 def dfs(graph, visited, node, answer):
+    if (node not in graph.keys()):
+        return answer
+        
     nxt = graph[node]
     
     if (nxt is None or nxt == []):
