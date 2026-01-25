@@ -55,7 +55,7 @@ if __name__=="__main__":
     findMaxK()
     answer = []
 
-    for K in range(1, maxK):
+    for K in range(1, maxK + 1):
         makeVisited()
         safeZone = 0
         
