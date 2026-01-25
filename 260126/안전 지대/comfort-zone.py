@@ -1,6 +1,7 @@
 import sys
 
 input = sys.stdin.readline
+sys.setrecursionlimit(10**6)
 
 N, M = map(int, input().split())
 matrix = [
