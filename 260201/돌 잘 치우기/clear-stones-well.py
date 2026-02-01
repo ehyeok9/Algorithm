@@ -66,16 +66,17 @@ def bfs(sy, sx, rockAreas, rockAllowed, visited):
     return count
 
 
-def backtracking(rockAreas, rockAllowed, raiseCnt):
+def backtracking(idx, rockAreas, rockAllowed, raiseCnt):
     if (raiseCnt == M):
         findMaxArea(rockAreas, rockAllowed)
         return
     
-    for pos in rockAreas:
+    for i in range(idx, len(rockAreas)):
+        pos = rockAreas[i]
         if not rockAllowed[pos]:
             rockAllowed[pos] = True
             findMaxArea(rockAreas, rockAllowed)
-            backtracking(rockAreas, rockAllowed, raiseCnt + 1)
+            backtracking(idx + 1, rockAreas, rockAllowed, raiseCnt + 1)
             rockAllowed[pos] = False
     
 
@@ -91,7 +92,7 @@ def simulation():
     for pos in rockAreas:
         rockAllowed[pos] = False
 
-    backtracking(rockAreas, rockAllowed, 0)
+    backtracking(0, rockAreas, rockAllowed, 0)
 
     print(answer)
     
