@@ -49,4 +49,7 @@ def bfs():
 
 if __name__=="__main__":
     bfs()
-    print(answer)
+    if answer == float("inf"):
+        print(-1)
+    else:
+        print(answer)
