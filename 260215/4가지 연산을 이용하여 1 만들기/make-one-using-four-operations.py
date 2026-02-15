@@ -4,12 +4,14 @@ from collections import deque
 input = sys.stdin.readline
 
 N = int(input())
-visited = [-1 for num in range(1, 1000001)]
+visited = [-1 for num in range(1000001)]
 
 def inRange(num):
     return (0 <= num < 1000001)
 
 def bfs():
+    global N
+
     deq = deque([N])
     visited[N] = 0
 
