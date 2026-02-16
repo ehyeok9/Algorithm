@@ -43,7 +43,7 @@ def simulation():
 
             if not inRange(ny, nx): continue
             if grid[ny][nx] != MANDARIN: continue
-            if (visited[ny][nx] != -1) and (visited[ny][nx] < (visited[cy][cx] + 1)): continue
+            if (visited[ny][nx] != -1): continue
             
             visited[ny][nx] = visited[cy][cx] + 1
             deq.append((ny, nx))
