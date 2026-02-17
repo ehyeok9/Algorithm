@@ -10,7 +10,7 @@ lines = [
 answer = 0
 
 def isOverlap(arr):
-    arr.sort()
+    arr = sorted(arr)
     
     for i in range(len(arr) - 1):
         cy, cx = arr[i]
@@ -23,17 +23,14 @@ def isOverlap(arr):
 
 
 def backtracking(idx, selected):
-    global answer
+    global answer, N
 
-    if (len(selected) > N):
-        return
-    
     if not isOverlap(selected):
         answer = max(answer, len(selected))
 
     for i in range(idx, N):
         selected.append(lines[i])
-        backtracking(i, selected)
+        backtracking(i + 1, selected)
         selected.pop()
 
 if __name__=="__main__":
